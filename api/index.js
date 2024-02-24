@@ -3,8 +3,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
-import listingRouter from "./routes/listing.route.js.route.js";
+import listingRouter from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
+import path from "path";
 dotenv.config();
 
 const app = express();
@@ -18,7 +19,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
+const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
 

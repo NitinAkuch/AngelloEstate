@@ -1,5 +1,5 @@
-import { errorHandler } from "../utils/error";
-import User from "../models/user.model";
+import { errorHandler } from "../utils/error.js";
+import User from "../models/user.model.js";
 export const test = (req, res) => {
   res.send("Hello Nitin Akuch from Router through controller.");
 };
@@ -36,7 +36,7 @@ export const updateUser = async (req, res, next) => {
 };
 
 //DeleteUser
-const deleteUser = async (req, res, next) => {
+export const deleteUser = async (req, res, next) => {
   if (req.user.id != req.params.id) {
     return next(errorHandler(401, "You can delete only your own account.!"));
   }
@@ -49,6 +49,19 @@ const deleteUser = async (req, res, next) => {
   }
 };
 //GetUserListings
+
+export const getUserListings = async (req, res, next) => {
+  if (req.user.id === req.params.id) {
+    try {
+      const listings = await Listing.find({ userRef: req.params.id });
+      res.status(200).json(listings);
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    return next(errorHandler(401, "You can only view your own listings!"));
+  }
+};
 //GetUser
 
 export const getUser = async (req, res, next) => {
