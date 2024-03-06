@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div className="py-20 px-4 max-w-6xl mx-auto ">
@@ -5,18 +6,21 @@ const About = () => {
         About Angello Estate
       </h1>
       <p className="mb-4 text-slate-700">
-        Angello Estate is a leading real estate agency that specializes in
-        helping clients buy, sell, and rent properties in the most desirable
-        neighborhoods. Our team of experienced agents is dedicated to providing
-        exceptional service and making the buying and selling process as smooth
-        as possible.
+        <span className="font-semibold"> Angello Estate</span> is a leading real
+        estate agency that specializes in helping clients buy, sell, and rent
+        properties in the most desirable neighborhoods. Our team of experienced
+        agents is dedicated to providing exceptional service and making the
+        buying and selling process as smooth as possible.
       </p>
       <p className="mb-4 text-slate-700">
         Our mission is to help our clients achieve their real estate goals by
         providing expert advice, personalized service, and a deep understanding
         of the local market. Whether you are looking to buy, sell, or rent a
-        property in Pune, Mumbai, Bangalore, Delhi, Hyderabad, We are here to
-        help you every step of the way.
+        property in{" "}
+        <span className="font-semibold">
+          Pune, Mumbai, Bangalore, Delhi, Hyderabad
+        </span>
+        . We are here to help you every step of the way.
       </p>
       <p className="mb-4 text-slate-700">
         Our team of agents has a wealth of experience and knowledge in the real
@@ -25,6 +29,19 @@ const About = () => {
         should be an exciting and rewarding experience, and we are dedicated to
         making that a reality for each and every one of our clients.
       </p>
+      <div className="flex justify-end">
+        <p className="mb-4 mt-40 text-slate-700">
+          Angello Estate Project Designed and Developed by{" "}
+          <Link
+            className="text-blue-700 hover:cursor-pointer underline"
+            to="https://www.linkedin.com/in/nitin-akuch/"
+            target="_blank"
+          >
+            Nitin Akuch
+          </Link>
+          .
+        </p>
+      </div>
     </div>
   );
 };
